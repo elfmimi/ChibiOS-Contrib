@@ -1,0 +1,63 @@
+--- NUC123.h
++++ NUC123.h
+@@ -104,7 +104,7 @@
+ 
+ 
+ #include "core_cm0.h"                   /* Cortex-M0 processor and core peripherals               */
+-#include "system_NUC123.h"              /* NUC123 System                                          */
++//#include "system_NUC123.h"              /* NUC123 System                                          */
+ 
+ #if defined ( __CC_ARM   )
+ #pragma anon_unions
+@@ -8532,8 +8532,8 @@
+ #define UNLOCKREG()        do{*((__IO uint32_t *)(GCR_BASE + 0x100)) = 0x59;*((__IO uint32_t *)(GCR_BASE + 0x100)) = 0x16;*((__IO uint32_t *)(GCR_BASE + 0x100)) = 0x88;}while(*((__IO uint32_t *)(GCR_BASE + 0x100))==0)
+ #define LOCKREG()          *((__IO uint32_t *)(GCR_BASE + 0x100)) = 0x00
+ 
+-#define REGCOPY(dest, src)  *((uint32_t *)&(dest)) = *((uint32_t *)&(src))
+-#define CLEAR(dest)         *((uint32_t *)&(dest)) = 0
++//#define REGCOPY(dest, src)  *((uint32_t *)&(dest)) = *((uint32_t *)&(src))
++//#define CLEAR(dest)         *((uint32_t *)&(dest)) = 0
+ 
+ //=============================================================================
+ /** @addtogroup IO_ROUTINE I/O routines
+@@ -8739,23 +8739,23 @@
+ /******************************************************************************/
+ /*                         Peripheral header files                            */
+ /******************************************************************************/
+-#include "sys.h"
+-#include "adc.h"
+-#include "fmc.h"
+-#include "gpio.h"
+-#include "i2c.h"
+-#include "pwm.h"
+-#include "spi.h"
+-#include "timer.h"
+-#include "wdt.h"
+-#include "wwdt.h"
+-#include "uart.h"
+-#include "i2s.h"
+-#include "usbd.h"
+-#include "pdma.h"
+-#include "ps2.h"
+-#include "clk.h"
+-#include "crc.h"
++//#include "sys.h"
++//#include "adc.h"
++//#include "fmc.h"
++//#include "gpio.h"
++//#include "i2c.h"
++//#include "pwm.h"
++//#include "spi.h"
++//#include "timer.h"
++//#include "wdt.h"
++//#include "wwdt.h"
++//#include "uart.h"
++//#include "i2s.h"
++//#include "usbd.h"
++//#include "pdma.h"
++//#include "ps2.h"
++//#include "clk.h"
++//#include "crc.h"
+ #endif
+ 
+ 

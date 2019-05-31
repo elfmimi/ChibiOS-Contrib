@@ -4,3 +4,4 @@
 .dep
 build
 os/hal/ports/NUMICRO/NUC122/NUC122.h
+os/hal/ports/NUMICRO/NUC123/NUC123.h
