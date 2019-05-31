@@ -1,0 +1,55 @@
+--- NUC122.h
++++ NUC122.h
+@@ -97,7 +97,7 @@
+ 
+ 
+ #include "core_cm0.h"                   /* Cortex-M0 processor and core peripherals               */
+-#include "system_NUC122.h"              /* NUC122 System                                          */
++//#include "system_NUC122.h"              /* NUC122 System                                          */
+ 
+ #if defined ( __CC_ARM   )
+ #pragma anon_unions
+@@ -5619,8 +5619,8 @@
+ #define UNLOCKREG()        do{*((__IO uint32_t *)(GCR_BASE + 0x100)) = 0x59;*((__IO uint32_t *)(GCR_BASE + 0x100)) = 0x16;*((__IO uint32_t *)(GCR_BASE + 0x100)) = 0x88;}while(*((__IO uint32_t *)(GCR_BASE + 0x100))==0)
+ #define LOCKREG()          *((__IO uint32_t *)(GCR_BASE + 0x100)) = 0x00
+ 
+-#define REGCOPY(dest, src)  *((uint32_t *)&(dest)) = *((uint32_t *)&(src))
+-#define CLEAR(dest)         *((uint32_t *)&(dest)) = 0
++//#define REGCOPY(dest, src)  *((uint32_t *)&(dest)) = *((uint32_t *)&(src))
++//#define CLEAR(dest)         *((uint32_t *)&(dest)) = 0
+ 
+ //=============================================================================
+ /** @addtogroup IO_ROUTINE I/O routines
+@@ -5826,19 +5826,19 @@
+ /******************************************************************************/
+ /*                         Peripheral header files                            */
+ /******************************************************************************/
+-#include "SYS.h"
+-#include "FMC.h"
+-#include "GPIO.h"
+-#include "I2C.h"
+-#include "PWM.h"
+-#include "SPI.h"
+-#include "TIMER.h"
+-#include "WDT.h"
+-#include "UART.h"
+-#include "USBD.h"
+-#include "PS2.h"
+-#include "CLK.h"
+-#include "RTC.h"
++//#include "SYS.h"
++//#include "FMC.h"
++//#include "GPIO.h"
++//#include "I2C.h"
++//#include "PWM.h"
++//#include "SPI.h"
++//#include "TIMER.h"
++//#include "WDT.h"
++//#include "UART.h"
++//#include "USBD.h"
++//#include "PS2.h"
++//#include "CLK.h"
++//#include "RTC.h"
+ 
+ #endif
+ 

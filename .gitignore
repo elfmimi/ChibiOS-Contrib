@@ -3,3 +3,4 @@
 *~
 .dep
 build
+os/hal/ports/NUMICRO/NUC122/NUC122.h
