@@ -274,6 +274,9 @@ void i2c_lld_init(void) {
   SYS->GPF_MFP |= 0x000C;
   SYS->ALT_MFP1 = (SYS->ALT_MFP1 & 0xF0FFFFFF) | 0x0A000000;
 #endif
+#ifdef NUC123xxxAEx
+  SYS->GPF_MFPL = (SYS->GPF_MFPL & 0xFFFF00FF) | 0x00002200;
+#endif
 #endif
 
 #if NUMICRO_I2C_USE_I2C1
@@ -285,6 +288,9 @@ void i2c_lld_init(void) {
 #ifdef NUC123xxxANx
   SYS->GPA_MFP |= 0x0C00;
   SYS->ALT_MFP = (SYS->ALT_MFP & 0xFFFFE7FF) | 0x00000000;
+#endif
+#ifdef NUC123xxxAEx
+  SYS->GPA_MFPH = (SYS->GPA_MFPH & 0xFFFF00FF) | 0x00001100;
 #endif
 #endif
 
