@@ -141,7 +141,11 @@ TODO: add IrDA and RS485 support
 #elif NUC123_SERIAL_CLKSRC == NUC123_SERIAL_CLKSRC_HSE
 #define NUC123_SERIAL_CLK NUC123_HSECLK
 #elif NUC123_SERIAL_CLKSRC == NUC123_SERIAL_CLKSRC_HSI
+#if defined(NUC125xxxAE)
+#define NUC123_SERIAL_CLK NUC123_HSICLK/2
+#else
 #define NUC123_SERIAL_CLK NUC123_HSICLK
+#endif
 #endif
 
 /*===========================================================================*/

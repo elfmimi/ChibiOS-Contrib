@@ -277,6 +277,17 @@ void i2c_lld_init(void) {
 #ifdef NUC123xxxAEx
   SYS->GPF_MFPL = (SYS->GPF_MFPL & 0xFFFF00FF) | 0x00002200;
 #endif
+#if defined(NUC125xxxAE)
+#if defined(NUC125ZC2AE) || defined(NUC121ZC2AE)
+  /* Select I2C0 Pins PC.13 and PC.12 as I2C0_SDA and I2C0_SCL*/
+  SYS->GPC_MFPH = (SYS->GPC_MFPH & ~0x00FF0000) | 0x00660000;
+#else
+  /* Select I2C0 Pins PC.13 and PC.12 as I2C0_SDA and I2C0_SCL*/
+  SYS->GPC_MFPH = (SYS->GPC_MFPH & ~0x00FF0000) | 0x00660000;
+  /* Select I2C0 Pins PF.2 and PF.3 as I2C0_SDA and I2C0_SCL*/
+  // SYS->GPF_MFPL = (SYS->GPF_MFPL & ~0x0000FF00) | 0x00002200;
+#endif
+#endif
 #endif
 
 #if NUMICRO_I2C_USE_I2C1
@@ -290,7 +301,10 @@ void i2c_lld_init(void) {
   SYS->ALT_MFP = (SYS->ALT_MFP & 0xFFFFE7FF) | 0x00000000;
 #endif
 #ifdef NUC123xxxAEx
-  SYS->GPA_MFPH = (SYS->GPA_MFPH & 0xFFFF00FF) | 0x00001100;
+  SYS->GPA_MFPH = (SYS->GPA_MFPH & ~0x0000FF00) | 0x00001100;
+#endif
+#if defined(NUC125xxxAE)
+  SYS->GPA_MFPH = (SYS->GPA_MFPH & ~0x0000FF00) | 0x00001100;
 #endif
 #endif
 

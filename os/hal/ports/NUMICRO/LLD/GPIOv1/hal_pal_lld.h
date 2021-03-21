@@ -1203,6 +1203,7 @@ typedef GPIO_T * ioportid_t;
 #define GPIOB           PB
 #define GPIOC           PC
 #define GPIOD           PD
+#define GPIOE           PE
 #define GPIOF           PF
 
 /*===========================================================================*/

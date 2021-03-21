@@ -322,6 +322,15 @@ void sd_lld_init(void)
 #if defined(NUC123xxxAEx)
   SYS->GPB_MFPL = (SYS->GPB_MFPL & ~0x000000FF) | 0x00000011;
 #endif
+#if defined(NUC125xxxAE)
+#if defined(NUC125ZC2AE) || defined(NUC121ZC2AE)
+  /* Select UART0 Pins PD.2 and PD.1 as UART0_TXD and UART0_RXD */
+  SYS->GPD_MFPL = (SYS->GPD_MFPL & ~0x00000FF0) | 0x00000550;
+#else
+  /* Select UART0 Pins PB.1 and PB.0 as UART0_TXD and UART0_RXD */
+  SYS->GPB_MFPL = (SYS->GPB_MFPL & ~0x000000FF) | 0x00000011;
+#endif
+#endif
   SD0.uart = UART0;
 #endif
 
@@ -429,7 +438,7 @@ void sd_lld_start(SerialDriver* sdp, const SerialConfig* config)
     if (FALSE) {
     }
 #endif
-#elif defined(NUC123xxxAEx)
+#elif defined(NUC123xxxAEx) || defined(NUC125xxxAE)
 #if NUC123_SERIAL_CLK <= (3 * NUC123_HCLK)
     if ((9 <= (baud_denom - 2)) && ((baud_denom - 2) <= NUC123_BRD_MAX)) {
       sdp->uart->BAUD = NUC123_BRD_MODE2 | (baud_denom - 2);

@@ -92,9 +92,11 @@
 
 #define NUC123_USBD_CLKDIV ((NUC123_PLLCLK) / (NUC123_USBD_CLK))
 
+#if !defined(NUC125xxxAE)
 #if ((NUC123_USBD_CLKDIV * NUC123_USBD_CLK) != NUC123_PLLCLK) ||            \
     (16 < NUC123_USBD_CLKDIV)
 #error "Cannot generate required 48MHz from the configured PLL frequency"
+#endif
 #endif
 
 #if !defined(NUC123_USB_USE_USB1) || (!NUC123_USB_USE_USB1)

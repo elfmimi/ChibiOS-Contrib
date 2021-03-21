@@ -54,7 +54,11 @@
 /* Driver local definitions.                                                 */
 /*===========================================================================*/
 
+#if defined(NUC125xxxAE)
+#define NUC123_USB_HW_ENDPOINTS 8
+#else
 #define NUC123_USB_HW_ENDPOINTS 6
+#endif
 
 #define NUC123_USBD_CFG_OUT (1UL << USBD_CFG_STATE_Pos)
 #define NUC123_USBD_CFG_IN  (2UL << USBD_CFG_STATE_Pos)
